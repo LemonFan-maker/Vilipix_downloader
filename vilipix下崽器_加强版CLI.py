@@ -7,8 +7,13 @@ import re
 import sys
 import argparse
 
-parser = argparse.ArgumentParser(description='下载vilipix的图片')
-parser.add_argument('illust', type=str, nargs="+", help='vilipix的illust号')
+parser = argparse.ArgumentParser(description='下载vilipix的图片', add_help=False)
+
+action_group = parser.add_argument_group("程序")
+action_group.add_argument('illust', type=str, nargs="+", help='vilipix的illust号')
+
+help_group = parser.add_argument_group("帮助")
+help_group.add_argument('-h', "--help", action="help", help="查看帮助信息")
 
 def determine(param):
     if re.match(r'^[0-9]*$', param):
@@ -56,14 +61,13 @@ def save(url,alt,illust):
     else:    
         print("目录不存在,创建.")
         os.makedirs("images")
-
     os.chdir(downdir)
     urlretrieve(url, str(alt)+"."+str(illust)+'.png')
             
 args = parser.parse_args()
 param = parser.parse_args().illust
-param = param[0]
-illust = determine(param)
-webpages(param)
-real_url, alt = downpic(param)
+data = param[0]
+illust = determine(data)
+webpages(data)
+real_url, alt = downpic(data)
 save(real_url,alt,illust)
