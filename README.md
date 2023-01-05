@@ -24,12 +24,19 @@
 1. 添加下崽选项
 
 2. 完善*vilipix下崽器_加强版CLI*
+   
+   2.1. help 页面的分类
+   
+   2.2. 添加日志输出
+   
+   2.3. 可能会添加tkinter版本的....?
+   
+   2.4. 不大可能添加qt5版本的.........?
+   ti
+   2.5. :rofl:
 
-3. 补充*vilipix下崽器_加强版*
+3. 补充*vilipix下崽器_加强版* 
 
 4. ~~弃坑*vilipix下崽器*~~(于2023-1-5完成)
 
 5. :rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl::rofl:
-
-
-
