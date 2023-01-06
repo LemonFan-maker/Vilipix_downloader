@@ -5,6 +5,7 @@ from lxml import etree
 import os
 import re
 import sys
+import logging
 import argparse
 
 parser = argparse.ArgumentParser(description='下载vilipix的图片', add_help=False)
@@ -14,6 +15,9 @@ action_group.add_argument('illust', type=str, nargs="+", help='vilipix的illust�
 
 help_group = parser.add_argument_group("帮助")
 help_group.add_argument('-h', "--help", action="help", help="查看帮助信息")
+
+log_group = parser.add_argument_group("日志")
+log_group.add_argument('-l', "--log", action="store_true", help="日志保存")
 
 def determine(param):
     if re.match(r'^[0-9]*$', param):
@@ -71,3 +75,5 @@ illust = determine(data)
 webpages(data)
 real_url, alt = downpic(data)
 save(real_url,alt,illust)
+if args.log:
+    print("hehe")
