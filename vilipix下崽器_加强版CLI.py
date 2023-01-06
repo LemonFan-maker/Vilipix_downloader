@@ -23,7 +23,7 @@ def callback(param):
     if re.search('[a-zA-Z]', param):
         noname(param)
     else:
-        return param
+        webpages(param)
 
 def noname(param):
     noname_webpages(param)
@@ -64,7 +64,7 @@ def noname_downpic(illust):
         alt = tree.xpath('//img/@alt')[0]
         #print("准备下载",alt)
         noname_save(result, alt)
-    
+
 def noname_save(url, alt):
     abs = sys.path[0]
     downdir = abs+"\\images\\"
@@ -83,6 +83,7 @@ def webpages(illust):
     }
     response = requests.get(url, headers=headers).status_code
     if response in range(200,300):
+        downpic(illust)
         return 0
     else:
         print("报错",response,"请检查illust是否存在.")
@@ -99,14 +100,13 @@ def downpic(illust):
     for one in data:
         img_url = re.findall("https://img9.vilipix.com/picture/pages/regular/(.*?)_p0_master1200.jpg?",str(one))
         img_date = re.sub('[\[\]\'\"]', '', str(img_url))
-        print(img_date)
         real_url = "https://img9.vilipix.com/picture/pages/original/"+str(img_date)+"_p0.jpg"
         pattern = "<img alt.{1,}/>"
         element = re.search(pattern, str(data)).group()
         tree = etree.HTML(element)
         alt = tree.xpath('//img/@alt')[0]
         #print("准备下载",alt)
-        return real_url, alt
+        save(real_url, alt, illust)
 
 def save(url,alt,illust):
     abs = sys.path[0]
@@ -122,7 +122,4 @@ def save(url,alt,illust):
 args = parser.parse_args()
 param = parser.parse_args().illust
 data = param[0]
-illust = callback(data)
-webpages(data)
-result, alt = downpic(data)
-save(result,alt,illust)
+callback(data)
