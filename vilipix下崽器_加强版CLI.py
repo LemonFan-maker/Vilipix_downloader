@@ -49,7 +49,8 @@ def downpic(illust):
     for one in data:
         img_url = re.findall("https://img9.vilipix.com/picture/pages/regular/(.*?)_p0_master1200.jpg?",str(one))
         img_date = re.sub('[\[\]\'\"]', '', str(img_url))
-        real_url = "https://img9.vilipix.com/picture/pages/regular/"+str(img_date)+"_p0_master1200.jpg"
+        print(img_date)
+        real_url = "https://img9.vilipix.com/picture/pages/original/"+str(img_date)+"_p0.jpg"
         pattern = "<img alt.{1,}/>"
         element = re.search(pattern, str(data)).group()
         tree = etree.HTML(element)
