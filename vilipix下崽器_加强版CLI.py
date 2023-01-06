@@ -39,7 +39,7 @@ def noname_webpages(illust):
     else:
         print("报错",response,"请检查illust是否存在.")
         os._exit(0)
-    
+
 def noname_downpic(illust):
     url = "https://www.vilipix.com/illust/"+str(illust)
     headers = {
@@ -118,7 +118,7 @@ def save(url,alt,illust):
         os.makedirs("images")
     os.chdir(downdir)
     urlretrieve(url, str(alt)+"."+str(illust)+'.png')
-            
+
 args = parser.parse_args()
 param = parser.parse_args().illust
 data = param[0]
