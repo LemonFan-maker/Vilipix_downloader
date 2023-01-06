@@ -19,12 +19,8 @@ help_group.add_argument('-h', "--help", action="help", help="查看帮助信息"
 log_group = parser.add_argument_group("日志")
 log_group.add_argument('-l', "--log", action="store_true", help="日志保存")
 
-def determine(param):
-    if re.match(r'^[0-9]*$', param):
-        return param
-    else:
-        print("illust不符合标准,退出.")
-        os._exit(0)
+def callback(param):
+    return param
 
 def webpages(illust):
     url = "https://www.vilipix.com/illust/"+str(illust)
@@ -46,11 +42,22 @@ def downpic(illust):
     response = requests.get(url, headers=headers)
     soup = BeautifulSoup(response.content, 'html.parser')
     data = soup.find_all('ul',attrs={'class':'illust-pages'})
+    imglist = soup.find_all('img')
+    lenth = len(imglist)  #计算集合的个数
+    for i in range(lenth-1):
+        dt = str(imglist[i-1])
+        list1 = dt.split(" ")
+        strlist = list1[1:3]
+        strlist = ','.join(strlist)
+        string = strlist.replace("'",'')
+        result = re.findall(r'src="(.*?)"', string)[0]
+        result = re.split(r'\?.{1,}',result)[0]
+        print(result)
+
     for one in data:
         img_url = re.findall("https://img9.vilipix.com/picture/pages/regular/(.*?)_p0_master1200.jpg?",str(one))
         img_date = re.sub('[\[\]\'\"]', '', str(img_url))
-        print(img_date)
-        real_url = "https://img9.vilipix.com/picture/pages/original/"+str(img_date)+"_p0.jpg"
+        real_url = "https://img9.vilipix.com/picture/pages/regular/"+str(img_date)+"_p0_master1200.jpg"
         pattern = "<img alt.{1,}/>"
         element = re.search(pattern, str(data)).group()
         tree = etree.HTML(element)
@@ -72,9 +79,7 @@ def save(url,alt,illust):
 args = parser.parse_args()
 param = parser.parse_args().illust
 data = param[0]
-illust = determine(data)
+illust = callback(data)
 webpages(data)
 real_url, alt = downpic(data)
 save(real_url,alt,illust)
-if args.log:
-    print("hehe")
