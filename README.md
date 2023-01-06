@@ -1,5 +1,11 @@
 # Vilipix下“崽”器:rofl:
 
+——————
+
+[![Codacy Security Scan](https://github.com/LemonFan-maker/Vilipix_downloader/actions/workflows/codacy.yml/badge.svg)](https://github.com/LemonFan-maker/Vilipix_downloader/actions/workflows/codacy.yml)
+
+——————
+
 # 请自行代码审查，并且严格遵守*License*
 
 # *Windows*下效果更好
@@ -25,17 +31,19 @@
 
 2. 完善*vilipix下崽器_加强版CLI*
    
-   2.1. ~~help 页面的分类~~（于2023-1-5完成）
+   2.1. ~~help 页面的分类~~(于2023-1-5完成)
    
    2.2. 添加日志输出
    
    2.3. 可能会添加tkinter版本的....?
    
    2.4. 不大可能添加qt5版本的.........?
+   
+   2.5. ~~补充对"佚名画师"的下载增强~~(于2023-1-6完成)
+   
+   2.6. :rofl:
 
-   2.5. :rofl:
-
-3. 补充*vilipix下崽器_加强版* 
+3. ~~补充*vilipix下崽器_加强版* ~~(放弃)
 
 4. ~~弃坑*vilipix下崽器*~~(于2023-1-5完成)
 
