@@ -15,23 +15,19 @@ if re.match(r'\d{1,}', name):
     }
     response = requests.get(url, headers=headers)
     soup = BeautifulSoup(response.content, 'html.parser')
-    imglist = soup.find_all('img')
-    lenth = len(imglist)  #计算集合的个数
-    for i in range(lenth-1):
-        data = str(imglist[i-1])
-        list1 = data.split(" ")
-        strlist = list1[1:3]
-        strlist = ','.join(strlist)
-        string = strlist.replace("'",'')
-        s = 'alt="a",src="b"/>'
-        result = re.findall(r'src="(.*?)"', string)[0]
-        result = re.split(r'\?.{1,}',result)[0]
-        print(result)
-
-
-    #for one in data:
-    #    img_url = soup.find_all("img")
-    #    print(img_url)
+    data = soup.find_all('ul',attrs={'class':'illust-pages'})
+    for one in data:
+        img_url = re.findall("https://img9.vilipix.com/picture/pages/regular/(.*?)_p0_master1200.jpg?",str(one))
+        img_date = re.sub('[\[\]\'\"]', '', str(img_url))
+        real_url = "https://img9.vilipix.com/picture/pages/regular/"+str(img_date)+"_p0_master1200.jpg"
+        pattern = "<img alt.{1,}/>"
+        element = re.search(pattern, str(data)).group()
+        tree = etree.HTML(element)
+        alt = tree.xpath('//img/@alt')[0]
+        print(alt)
+        os.makedirs('./image/', exist_ok=True)
+        urlretrieve(real_url, './image/'+str(alt)+"."+str(name)+'.png')
+        print("保存成功.")
 else:
     print("illust账号不符合标准.")
     os._exit(0)
