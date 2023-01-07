@@ -1,11 +1,5 @@
 # Vilipix下“崽”器:rofl:
 
-——————
-
-[![Codacy Security Scan](https://github.com/LemonFan-maker/Vilipix_downloader/actions/workflows/codacy.yml/badge.svg)](https://github.com/LemonFan-maker/Vilipix_downloader/actions/workflows/codacy.yml)
-
-——————
-
 # 请自行代码审查，并且严格遵守*License*
 
 # *Windows*下效果更好
@@ -43,7 +37,7 @@
    
    2.6. :rofl:
 
-3. ~~补充*vilipix下崽器_加强版* ~~(放弃)
+3. ~~补充*vilipix下崽器_加强版*~~(放弃)
 
 4. ~~弃坑*vilipix下崽器*~~(于2023-1-5完成)
 
