@@ -1,12 +1,11 @@
-from bs4 import BeautifulSoup
-import requests
-from urllib.request import urlretrieve
-from lxml import etree
 import os
 import re
 import sys
-import logging
+import requests
 import argparse
+from lxml import etree
+from bs4 import BeautifulSoup
+from urllib.request import urlretrieve
 
 parser = argparse.ArgumentParser(description='下载vilipix的图片', add_help=False)
 
@@ -84,7 +83,6 @@ def webpages(illust):
     response = requests.get(url, headers=headers).status_code
     if response in range(200,300):
         downpic(illust)
-        return 0
     else:
         print("报错",response,"请检查illust是否存在.")
         os._exit(0)
